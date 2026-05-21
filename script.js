@@ -32,3 +32,37 @@ export class Calculator {
         return x / y
     }
 }
+
+export class Caeser {
+    
+    constructor(plain, shift) {
+        this.plain = plain;
+        this.shift = shift;
+    }
+
+    cipher() {
+        this.shiftLetters()
+    }
+
+    strip(){
+
+        const string = this.plain;
+        const letters = string.replace(/[^a-zA-Z]/g, "")
+        return letters
+
+    }
+
+    shiftLetters() {
+
+        const stripped = this.strip()
+        let charCode = []
+        
+        for (i = 0; i < stripped.length; i++){
+            charCode.push(stripped.charCodeAt(i) + this.shift)
+        }
+
+        const shifted = String.fromCharCode(...charCode)
+
+        return shifted 
+    }
+}

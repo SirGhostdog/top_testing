@@ -1,4 +1,4 @@
-import { Calculator, capitalFirst, reverseString } from './script.js'
+import { Caeser, Calculator, capitalFirst, reverseString } from './script.js'
 
 test ('turns chicago into Chicago', () => {
     expect(capitalFirst('chicago')).toBe('Chicago');
@@ -22,4 +22,11 @@ test ('multiply', () => {
 
 test ('divide', () => {
     expect(Calculator.division(6, 2)).toBe(3);
+})
+
+test ('Hello, World! cipher shift', () => {
+    const code = new Caeser('Hello, World!', 3)
+    // expect(code.cipher()).toBe('Khoor, Zruog!')
+    // expect(code.strip()).toBe('HelloWorld')
+    expect(code.shiftLetters()).toBe('KhoorZruog')
 })
