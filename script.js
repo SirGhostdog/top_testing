@@ -44,13 +44,13 @@ export class Caeser {
         this.shiftLetters()
     }
 
-    strip(){
+    // strip(){
 
-        const string = this.plain;
-        const letters = string.replace(/[^a-zA-Z]/g, "")
-        return letters
+    //     const string = this.plain;
+    //     const letters = string.replace(/[^a-zA-Z]/g, "")
+    //     return letters
 
-    }
+    // }
 
     shiftLetters() {
 
@@ -58,12 +58,34 @@ export class Caeser {
         let charCode = []
         
         for (i = 0; i < stripped.length; i++){
-            if(stripped.charCodeAt(i) = 65)
+
+            if((64 < stripped.charCodeAt(i) && stripped.charCodeAt(i) < 91) || (96 < stripped.charCodeAt(i) && stripped.charCodeAt(i) < 123)) {
             charCode.push(stripped.charCodeAt(i) + this.shift)
+            } else {
+                charCode.push(stripped.charCodeAt(i))
+            }
         }
 
         const shifted = String.fromCharCode(...charCode)
 
         return shifted 
+    }
+}
+
+export function analyzeArray(numbers) {
+
+    const average = numbers.reduce((sum, num) => sum + num, 0) / numbers.length
+
+    const min = Math.min(...numbers)
+
+    const max = Math.max(...numbers)
+
+    const length = numbers.length
+
+    return {
+        average,
+        min,
+        max,
+        length
     }
 }
