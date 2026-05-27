@@ -54,10 +54,11 @@ export class Caeser {
 
     shiftLetters() {
 
-        const stripped = this.strip()
+        const stripped = this.plain
         let charCode = []
         
         for (i = 0; i < stripped.length; i++){
+            if(stripped.charCodeAt(i) = 65)
             charCode.push(stripped.charCodeAt(i) + this.shift)
         }
 
